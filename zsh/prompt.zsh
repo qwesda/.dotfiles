@@ -44,14 +44,13 @@ need_push () {
     echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
 }
-# export PROMPT="%{%F{red}%}%n%{%F{blue}%}@%m%{%f%}:%~$ "
 
 directory_name() {
   echo "%{$fg_bold[cyan]%}%d%\/%{$reset_color%}"
 }
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export PROMPT=$'\n$(directory_name)%{$fg_bold[red]%}@%m%{$reset_color%} $(git_dirty)$(need_push)\n$ '
+  export PROMPT=$'\n%{$fg_bold[red]%}%n@%M%{$reset_color%}:$(directory_name) $(git_dirty)$(need_push)\n$ '
 else
   export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n$ '
 fi
