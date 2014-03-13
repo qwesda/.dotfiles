@@ -50,7 +50,13 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%d%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n$ '
+if [[ -n $SSH_CONNECTION ]]; then
+  export PROMPT=$'\n$(directory_name)%{$fg_bold[red]%}@%m%{$reset_color%} $(git_dirty)$(need_push)\n$ '
+else
+  export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n$ '
+fi
+
+
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
