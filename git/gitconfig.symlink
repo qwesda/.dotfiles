@@ -1,0 +1,50 @@
+[core]
+  excludesfile  = ~/.gitignore
+  quotepath     = false
+  fileMode      = false
+  editor        = \"$EDITOR\" --wait
+
+[user]
+  name          = qwesda
+  email         = dan@butter.sh
+
+[credential]
+  helper        = osxkeychain
+
+[difftool "sourcetree"]
+  cmd           = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "sourcetree"]
+  cmd           = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+
+[difftool "Kaleidoscope"]
+  cmd           = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+  tool          = Kaleidoscope
+
+[difftool]
+  prompt        = false
+
+[mergetool "Kaleidoscope"]
+  cmd           = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+
+[mergetool]
+  prompt        = false
+
+[apply]
+  whitespace    = nowarn
+
+[merge]
+  tool          = Kaleidoscope
+
+[push]
+  default       = simple
+
+[color]
+  diff          = auto
+  status        = auto
+  branch        = auto
+  ui            = true
