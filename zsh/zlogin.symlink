@@ -1,3 +1,7 @@
-echo ''
-fortune
-echo ''
+if [[ -n $SSH_CONNECTION ]]; then
+  echo ''
+else
+  echo ''
+  fortune
+  echo ''
+fi
