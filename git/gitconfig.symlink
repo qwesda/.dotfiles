@@ -2,7 +2,7 @@
   excludesfile  = ~/.gitignore
   quotepath     = false
   fileMode      = false
-  editor        = \"$EDITOR\" --wait
+  editor        =vim
 
 [user]
   name          = qwesda
