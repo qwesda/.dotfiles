@@ -50,7 +50,7 @@ directory_name() {
 }
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export PROMPT=$'\n%{$fg_bold[red]%}%n@%M%{$reset_color%}:$(directory_name) $(git_dirty)$(need_push)\n$ '
+  export PROMPT=$'\n%{$fg_bold[red]%}%n@%M%{$reset_color%}\n$(directory_name) $(git_dirty)$(need_push)\n$ '
 else
   export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n$ '
 fi
