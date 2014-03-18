@@ -2,6 +2,6 @@ if [[ -n $SSH_CONNECTION ]]; then
   echo ''
 else
   echo ''
-  fortune
+  fortune discworld 
   echo ''
 fi
