@@ -1,6 +1,6 @@
-if ! [ -f "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" ]
+if  [ -e /usr/local/bin/sublime ]
 then
-  export EDITOR="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+  export EDITOR="/usr/local/bin/sublime"
 else
   export EDITOR='vim'
 fi
